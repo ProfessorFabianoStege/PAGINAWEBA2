@@ -7,10 +7,11 @@
     <title>Flashcard</title>
 </head>
 <body>
-    <audio autoplay loop>
-  <source src="https://radiosaovivo.net/#disney" type="audio/mp3">
-  Seu navegador não suporta o elemento de áudio.
-</audio>
+    <audio id="audio" autoplay loop>
+        <source src="https://radiosaovivo.net/#disney" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    
     <main>
         <section id="container">
             <!-- <article class="cartao">
@@ -26,10 +27,23 @@
             </article> -->
         </section>
     </main>
+    
     <footer>
         <p>Projeto desenvolvido pela Alura, sem fins lucrativos</p>
     </footer>
+
     <script src="app.js"></script>
     <script src="perguntas.js"></script>
+    
+    <!-- Script adicional para simular o clique -->
+    <script>
+        window.onload = function() {
+            var audioElement = document.getElementById("audio");
+            // Simula o clique no áudio para garantir a execução
+            audioElement.play().catch(function(error) {
+                console.log("Erro ao tentar tocar o áudio automaticamente: ", error);
+            });
+        }
+    </script>
 </body>
 </html>
