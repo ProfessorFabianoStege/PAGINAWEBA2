@@ -7,43 +7,34 @@
     <title>Flashcard</title>
 </head>
 <body>
-    <audio id="audio" autoplay loop>
+    <audio id="audio" loop>
         <source src="https://radiosaovivo.net/#disney" type="audio/mp3">
         Seu navegador não suporta o elemento de áudio.
     </audio>
-    
+
     <main>
         <section id="container">
-            <!-- <article class="cartao">
-                <div class="cartao__conteudo">
-                    <h3>Programação</h3>
-                    <div class="cartao__conteudo__pergunta">
-                        <p>O que é JavaScript?</p>
-                    </div>
-                    <div class="cartao__conteudo__resposta">
-                        <p>O JavaScript é uma linguagem de programação</p>
-                    </div>
-                </div>
-            </article> -->
+            <button id="playButton">Clique para tocar música</button>
         </section>
     </main>
-    
+
     <footer>
         <p>Projeto desenvolvido pela Alura, sem fins lucrativos</p>
     </footer>
 
     <script src="app.js"></script>
     <script src="perguntas.js"></script>
-    
-    <!-- Script adicional para simular o clique -->
+
     <script>
-        window.onload = function() {
+        // Função que toca o áudio quando o botão é clicado
+        document.getElementById("playButton").addEventListener("click", function() {
             var audioElement = document.getElementById("audio");
-            // Simula o clique no áudio para garantir a execução
-            audioElement.play().catch(function(error) {
-                console.log("Erro ao tentar tocar o áudio automaticamente: ", error);
+            audioElement.play().then(function() {
+                console.log("Áudio iniciado com sucesso!");
+            }).catch(function(error) {
+                console.log("Erro ao tentar tocar o áudio: ", error);
             });
-        }
+        });
     </script>
 </body>
 </html>
